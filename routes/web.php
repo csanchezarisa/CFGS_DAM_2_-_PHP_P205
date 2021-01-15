@@ -15,7 +15,7 @@ use App\Http\Controllers\CocheController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage');
 });
 
-Route::get('/coche/{id}', [CocheController::class, 'show']);
+Route::resource('/coche', CocheController::class);
