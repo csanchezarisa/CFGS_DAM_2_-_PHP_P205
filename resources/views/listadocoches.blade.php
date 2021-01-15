@@ -10,6 +10,8 @@
 
 @section('header')
     <h1>Coches disponibles</h1>
+    <h2>Listado con los coches disponibles</h2>
+    <h5>Click para ver información, doble click para editar</h5>
 @endsection
 
 @section('content')
@@ -23,7 +25,7 @@
 
         <!-- BUCLE QUE PINTA LES LINIES DE LA TAULA AMB LA INFORMACIÓ DELS COTXES -->
         @foreach ($coches as $coche)
-            <tr onclick="cocheSeleccionado({{ $coche->id }})">
+            <tr onclick="cocheSeleccionado({{ $coche->id }})" ondblclick="editarCoche({{ $coche->id }})">
                 <td>{{ $coche->id }}</td>
                 <td>{{ $coche->make }}</td>
                 <td>{{ $coche->model }}</td>
@@ -35,6 +37,10 @@
     <script>
         function cocheSeleccionado(id) {
             window.location = "/coche/" + id;
+        }
+
+        function editarCoche(id) {
+            window.location = "/coche/" + id + "/edit";
         }
     </script>
 @endsection

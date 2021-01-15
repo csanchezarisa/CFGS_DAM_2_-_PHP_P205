@@ -25,7 +25,7 @@ class CocheController extends Controller
      */
     public function create()
     {
-        //
+        return \view('insertarcoche');
     }
 
     /**
@@ -36,7 +36,15 @@ class CocheController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        try {
+            $coche = Coche::create($request->all());
+            return \redirect("/coche/$coche->id");
+        }
+        catch(\Exception $e) {
+            return \redirect("/");
+        }
+
     }
 
     /**
