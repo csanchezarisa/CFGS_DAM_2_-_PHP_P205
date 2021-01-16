@@ -14,6 +14,17 @@
 @endsection
 
 @section('content')
+
+    @if (session('errorCreating'))
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>¡Error!</strong> No se ha podido crear el coche. Pruébalo de nuevo.
+                </div>
+            </div>
+        </div>   
+    @endif
     
     <div class="row">
         <div class="col-sm-12">
@@ -27,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="modelo">Modelo:</label>
-                    <input type="text" name="model" id="model" class="form-control" placeholder="Modelo" required />
+                    <textarea name="model" id="model" class="form-control" placeholder="Modelo" rows="3" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="producido">Producido en:</label>

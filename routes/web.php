@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/coche', CocheController::class);
+
+Route::get('/coche/search/{id}', [CocheController::class, 'search']);

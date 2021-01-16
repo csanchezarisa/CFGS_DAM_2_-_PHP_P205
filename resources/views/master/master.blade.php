@@ -33,17 +33,20 @@
       
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="nav-link @yield('active-vercoches')" href="/coche">Ver coches</a>
             </li>
             <li class="nav-item">
               <a class="nav-link @yield('active-insertarcoche')" href="/coche/create">Insertar coche</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
           </ul>
+          <form action="/coche/search/" method="GET" class="form-inline my-2 my-lg-2">
+            <input type="number" name="id" id="id" class="form-control mr-sm-2" placeholder="Buscar" required />
+            <button type="submit" class="btn btn-success my-2 my-sm-0">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
         </div>
       </nav>
 

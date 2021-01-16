@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')
-    <table class="table table-responsive-sm table-dark table-striped table-hover">
+    <table class="table table-responsive-sm table-striped table-hover">
         <tr class="text-center">
             <th>#</th>
             <th>Creador</th>

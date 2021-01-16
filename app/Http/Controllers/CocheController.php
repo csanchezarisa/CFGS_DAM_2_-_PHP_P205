@@ -42,7 +42,7 @@ class CocheController extends Controller
             return \redirect("/coche/$coche->id");
         }
         catch(\Exception $e) {
-            return \redirect("/");
+            return \redirect("/coche/create")->with("errorCreating", true);
         }
 
     }
@@ -53,10 +53,32 @@ class CocheController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
+
+        $coche;
+
+        // Comprueba si se está pasando el parámetro ID. Sino, lo recoje de la request (Cuando se llama desde un formulario)
+        if (!is_numeric($id)) {
+            $id = $request['id'];
+        }
+
+        // Se busca el coche con el id querido
         $coche = Coche::find($id);
-        return view('coche')->with('coche', $coche);
+
+        // Se se ha encontrado algún coche, se devuelve la vista con la info. Sino de devuelve una con un error
+        if (isset($coche->id)) {
+            return view('coche')->with('coche', $coche);
+        }
+        else {
+            return view('coche', ['error' => true, 'id' => $id]);
+        }
+    }
+
+    public function search(Request $request) {
+        return $request;
+        // $coche = Coche::find($request['id']);
+        // return view('coche')->with('coche', $coche);
     }
 
     /**
