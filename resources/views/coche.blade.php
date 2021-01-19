@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-sm-12">
           <div class="alert alert-danger fade show">
-              <strong>¡Sin resultados!</strong> No existe ningún coche con id {{ $id }}. Prueba a crearlo.
+              <strong>¡Sin resultados!</strong> No existe ningún coche con id <strong>{{ $id }}</strong>. <a href="/coche/create" class="alert-link">Prueba a crearlo</a>.
           </div>
       </div>
     </div>
@@ -36,10 +36,11 @@
       <div class="col-sm-6">
         <div class="card bg-light" style="width:100%">
           <div class="card-header text-center">
-            <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/V-7AXXZHpgVr3J6QdJjt143czm0NJUEap9CPRpueHrfS8vBTrCtK3dw9eNMSsafFzW-Qo9_5gLzhx2xYfUCIL1BBlmLy4PsS5vIhO-hcR2kFdR7MWhd9MJ_rC2d2ej1wpRhtLqL1bSQirPtgCg" alt="Car image">
+            <img class="card-img-top" src="{{ URL::to('/') }}/images/coche.png" alt="Car image">
             <h4 class="card-title">Coche {{ $coche->id }}</h4>
           </div>
           <div class="card-body">
+            <h5 class="card-text">{{ $coche->make }}</h5>
             <p class="card-text">{{ $coche->model }}</p>
           </div>
           <div class="card-footer">
@@ -55,6 +56,9 @@
         <ul>
           <li>
             <strong>#ID:</strong> {{ $coche->id }}
+          </li>
+          <li>
+            <strong>Creador:</strong> {{ $coche->make }}
           </li>
           <li>
             <strong>Modelo:</strong> {{ $coche->model }}

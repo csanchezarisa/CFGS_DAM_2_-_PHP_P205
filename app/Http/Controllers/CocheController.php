@@ -89,7 +89,14 @@ class CocheController extends Controller
      */
     public function edit($id)
     {
-        //
+        $coche = Coche::find($id);
+
+        if (isset($coche->id)) {
+            return view('editarcoche')->with('coche', $coche);
+        }
+        else {
+            return view('editarcoche', ['error' => true, 'id' => $id]);
+        }
     }
 
     /**
