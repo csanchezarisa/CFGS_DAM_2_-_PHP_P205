@@ -131,6 +131,19 @@ class CocheController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $deleted = true;
+
+        try {
+            $coche = Coche::find($id);
+            $coche->delete();
+        }
+        catch(\Exception $e) {
+            $deleted=false;
+            return redirect('/')->with('not_deleted', $deleted);
+        }
+
+        return redirect('/')->with('deleted', $deleted);
+
     }
 }
