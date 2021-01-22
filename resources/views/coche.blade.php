@@ -32,6 +32,26 @@
   @endsection
 
   @section('content')
+    @if (isset($updated))
+        <div class="row">
+          <div class="col-sm-12">
+
+            @if ($updated)
+              <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>¡Éxito!</strong> Se ha editado correctamente el coche.
+              </div>    
+            @else
+              <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>¡Error!</strong> No se ha editar el coche. Pruébalo de nuevo.
+              </div>
+            @endif
+
+          </div>
+        </div>
+    @endif
+
     <div class="row">
       <div class="col-sm-6">
         <div class="card bg-light" style="width:100%">

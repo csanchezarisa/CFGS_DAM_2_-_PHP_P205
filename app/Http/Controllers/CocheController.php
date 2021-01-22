@@ -108,7 +108,19 @@ class CocheController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $updated = true;
+        $coche;
+
+        try {
+            $coche = Coche::find($id);
+            $coche->update($request->all());
+        }
+        catch(\Exception $e) {
+            $updated = false;
+        }
+
+        return view("/coche", ['updated'=> $updated])->with('coche', $coche);//->with("updated", $updated);
     }
 
     /**
