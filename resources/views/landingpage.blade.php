@@ -7,6 +7,7 @@
 @section('header')
   <h1>Concesionario Sánchez</h1>
   <h2>Donde tus sueños cobran vida</h2>
+  <h6>y se cobran...</h6>
 @endsection
 
 @section('content')
