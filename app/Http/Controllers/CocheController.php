@@ -76,9 +76,8 @@ class CocheController extends Controller
     }
 
     public function search(Request $request) {
-        return $request;
-        // $coche = Coche::find($request['id']);
-        // return view('coche')->with('coche', $coche);
+        $coche = Coche::find($request['id']);
+        return view('coche')->with('coche', $coche);
     }
 
     /**
